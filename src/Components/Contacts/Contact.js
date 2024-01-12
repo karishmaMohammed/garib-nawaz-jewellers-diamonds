@@ -2,6 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Contact.css";
 import { PREFIX_URL, BASE_URL } from "../../contant";
+import { toast } from 'react-toastify';
+
+const toastStyle = {
+  position: "top-right",
+  autoClose: 2000,
+  hideProgressBar: false,
+  pauseOnHover: true,
+  draggable: true,
+};
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -17,7 +26,6 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(BASE_URL + "create-contact-details", {
         clientName: formData.name,
@@ -32,6 +40,7 @@ function Contact() {
         phoneNumber: "",
         message: "",
       });
+      toast.success("Thanks for your response", toastStyle);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -39,17 +48,17 @@ function Contact() {
   const encodedMessage = encodeURIComponent(
     "Hi, I'm messaging you by seeing your portfolio"
   );
-  const whatsappMessage = `https://wa.me/+918309035246?text=${encodedMessage}`;
-  // const whatsappMessage = `https://wa.me/+919848424401?text=${encodedMessage}`;
+  // const whatsappMessage = `https://wa.me/+918309035246?text=${encodedMessage}`;
+  const whatsappMessage = `https://wa.me/+919848424401?text=${encodedMessage}`;
 
   return (
     <div className="contact-page" id="contact">
       <div className="contact-logos">
-        {/* <div className="visiting-logo-items"> */}
-          {/* <img src={`${PREFIX_URL}visiting-card.jpg`} alt="visiting card" /> */}
-        {/* </div> */}
-        <a className="logo-items" href={`tel:8309035246`} target="_blank">
-        {/* <a className="logo-items" href={`tel:9848424401`} target="_blank"> */}
+        <div className="visiting-logo-items">
+          <img src={`${PREFIX_URL}visiting-card.jpg`} alt="visiting card" />
+        </div>
+        {/* <a className="logo-items" href={`tel:8309035246`} target="_blank"> */}
+        <a className="logo-items" href={`tel:9848424401`} target="_blank">
           <img src={`${PREFIX_URL}phone-call-logo.png`} alt="googleMap" />
           <span>Phone Call</span>
         </a>

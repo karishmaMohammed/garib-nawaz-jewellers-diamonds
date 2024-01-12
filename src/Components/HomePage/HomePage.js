@@ -29,24 +29,25 @@ function HomePage() {
       diamondRef.current.scrollLeft += 300; // Adjust the scroll distance as needed
     }
   };
-  
+
   return (
     <div>
       <div className="introduction">
         <div className="intro-text">
           <span>
-            "Explore "Eternal Elegance Jewels in Karishma Jewelry," Our
-            collection boasts meticulously crafted gold and diamond pieces, each
-            a masterpiece showcasing sophistication. Expertly handpicked
-            diamonds and customizable options ensure a unique and brilliant
-            selection for every taste. Immerse yourself in a world of enduring
-            allure, where each creation at "Karishma Jewelry" tells a story of
-            opulence and individuality."
+            "Explore "Eternal Elegance Jewels in Garib Nawaz Jewellers and
+            Diamonds," Our collection boasts meticulously crafted gold and
+            diamond pieces, each a masterpiece showcasing sophistication.
+            Expertly handpicked diamonds and customizable options ensure a
+            unique and brilliant selection for every taste. Immerse yourself in
+            a world of enduring allure, where each creation at "Garib Nawaz
+            Jewellers and Diamonds" tells a story of opulence and
+            individuality."
           </span>
         </div>
         <div className="into-img">
-          <img src={`${ASSETS_URL}karishma.jpg`} alt="makka" />
-          {/* <img src={`${PREFIX_URL}dad-photo-removebg-preview.png`} alt="makka" /> */}
+          {/* <img src={`${ASSETS_URL}karishma.jpg`} alt="makka" /> */}
+          <img src={`${PREFIX_URL}dad-photo-removebg-preview.png`} alt="makka" />
         </div>
       </div>
       <div className="gold-ornaments">

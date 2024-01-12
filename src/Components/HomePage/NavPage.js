@@ -26,10 +26,10 @@ function NavPage() {
     <>
       <div className="top-nav">
         <div className="shop-name">
-        {/* <img className="jwellery-logo" src={`${PREFIX_URL}dad-shop-logo.png`} onClick={handleMenuOpen} alt="" /> */}
-        <img className="jwellery-logo" src={`${ASSETS_URL}karishma.jpg`} onClick={handleMenuOpen} alt="logo"/>
-        <span>Karishma Jewellers</span>
-        {/* <span>Garib Nawaz Jewellers and Diamonds</span> */}
+        <img className="jwellery-logo" src={`${PREFIX_URL}dad-shop-logo.png`} onClick={handleMenuOpen} alt="" />
+        {/* <img className="jwellery-logo" src={`${ASSETS_URL}karishma.jpg`} onClick={handleMenuOpen} alt="logo"/> */}
+        {/* <span>Karishma Jewellers</span> */}
+        <span>Garib Nawaz Jewellers and Diamonds</span>
         </div>
         
         <div className="navs">

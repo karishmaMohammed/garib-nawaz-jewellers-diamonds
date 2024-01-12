@@ -83,6 +83,7 @@ justify-content: center;
 }
 .submit-btn button{
     padding: 10px;
+   
     /* width: 6vw; */
     border-radius: 25px;
     cursor: pointer;
