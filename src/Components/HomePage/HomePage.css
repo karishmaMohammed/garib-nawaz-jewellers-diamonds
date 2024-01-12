@@ -11,7 +11,8 @@
   top: 0px;
 }
 .shop-name {
-  font-size: 25px;
+  /* font-size: 25px; */
+  font-size: clamp(16px, 2.4vw, 25px);
   font-weight: 400;
   padding-left: 40px;
   color: white;
@@ -170,6 +171,7 @@
 .gold-inner-items {
   width: 80%;
   position: relative;
+  justify-content: space-between;
   display: flex;
   align-items: center;
   /* border: 1px solid red; */
@@ -252,6 +254,12 @@
 }
 
 @media screen and (max-width: 500px) {
+  .into-img img {
+    width: 250px;
+    height: 250px;
+    border-radius: 30%;
+    /* padding-top: 40px; */
+  }
   .gold-items {
     width: 90%;
     display: flex;
@@ -261,7 +269,7 @@
     gap: 25px;
   }
   .gold-items-img img {
-    width: 120px;
+    width: 170px;
     height: 100%;
     border-radius: 25px;
   }
@@ -269,6 +277,12 @@
     width: 150px;
 
     height: 180px;
+  }
+  .gold-inner-items{
+    width: 100%;
+  }
+  .gold-ornaments{
+    padding: 10px 30px;
   }
 }
 
@@ -278,15 +292,17 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 110vh;
+  height: 110vh; 
+  padding-bottom: 100px;
   text-align: center;
+  box-sizing: border-box;
   background-color: rgba(37, 50, 62, 0.5);
-  padding-bottom: 30px;
   color:white;
   position: absolute;
   z-index: 1;
-  top: 80px;
+  top: 0px;
   left: 0px;
+  overflow-y: scroll;
 }
 .mobile-gold-orn {
   display: flex;
