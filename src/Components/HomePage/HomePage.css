@@ -14,7 +14,7 @@
   /* font-size: 25px; */
   font-size: clamp(16px, 2.4vw, 25px);
   font-weight: 400;
-  padding-left: 40px;
+  /* padding-left: 40px; */
   color: white;
   display: flex;
   align-items: center;
@@ -99,7 +99,12 @@
   align-items: start;
   border: 1px solid black;
 }
-
+.shop-name-phone-numbers span:nth-child(2){
+display: none;
+}
+.our-collection span{
+  display: none;
+}
 .introduction {
   margin-top: 50px;
   display: flex;
@@ -268,6 +273,15 @@
     overflow-y: hidden;
     gap: 25px;
   }
+  .shop-name-phone-numbers span:nth-child(2){
+    font-size: 12px;
+    font-weight: 400;
+    word-wrap: break-word;
+    display: flex;
+  }
+  .our-collection span{
+    display: block;
+  }
   .gold-items-img img {
     width: 170px;
     height: 100%;
@@ -296,7 +310,7 @@
   padding-bottom: 100px;
   text-align: center;
   box-sizing: border-box;
-  background-color: rgba(37, 50, 62, 0.5);
+  background-color: rgba(3, 8, 12, 0.75);
   color:white;
   position: absolute;
   z-index: 1;
@@ -304,6 +318,29 @@
   left: 0px;
   overflow-y: scroll;
 }
+.our-collection{
+  display: flex;
+  flex-direction: column;
+  word-wrap: none;
+  gap: 5px;
+  font-size: 15px;
+  /* padding: 3px; */
+  align-items: center;
+  justify-content: center;
+ 
+}
+.shop-name-phone-numbers{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.shop-name-phone-numbers span:nth-child(1){
+  font-size: 20px;
+  font-weight: 400;
+}
+
 .mobile-gold-orn {
   display: flex;
   align-items: center;
@@ -330,16 +367,17 @@
   align-items: center;
 }
 .mobile-drop-down-items a, .mobile-diamond-drop-down-items a{
-  color: rgb(244, 177, 8);
+  color: rgb(247, 215, 133);
   border-bottom: 1px solid white;
   padding: 10px 0px;
   width: 50%;
-  font-size: 20px;
+  font-size: 22px;
 }
 .mobile-drop-down-items a:hover, .mobile-diamond-drop-down-items a:hover{
-  font-size: 25px;
+  /* font-size: 25px; */
   cursor: pointer;
-  background: #f8edc2;
+  background: #82817f;
+  box-sizing: border-box;
 }
 @media screen and (max-width: 900px) {
 .jwellery-logo{

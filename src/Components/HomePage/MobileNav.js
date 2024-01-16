@@ -9,11 +9,11 @@ function MobileNav({close}) {
 
   const handleGoldDropDown = () => {
     setGoldDropDown(!goldDropDown);
-    // setDiamondDropDown(false);
+    setDiamondDropDown(false);
   };
   const handleDiamondDropDown = () => {
     setDiamondDropDown(!diamondDropDown);
-    // setGoldDropDown(false);
+    setGoldDropDown(false);
   };
   const handleCloseMenu = () => {
     close()
@@ -25,9 +25,9 @@ function MobileNav({close}) {
      
       <div className="mobile-navs">
         <a className="mobile-home" href="/">Home</a>
-        <div className="mobile-gold-orn">
+        <div className="mobile-gold-orn" onClick={handleGoldDropDown}>
           Gold Ornaments
-          <img src={`${PREFIX_URL}down-arrow.png`} alt="" onClick={handleGoldDropDown} />
+          <img src={`${PREFIX_URL}down-arrow.png`} alt=""  />
         </div>
         {goldDropDown && (
           <div className="mobile-drop-down-items">
@@ -50,9 +50,9 @@ function MobileNav({close}) {
             <a href="/some-more">Special Items</a>
           </div>
         )}
-        <div className="mobile-gold-orn">
+        <div className="mobile-gold-orn" onClick={handleDiamondDropDown}>
           Diamond Ornaments
-          <img src={`${PREFIX_URL}down-arrow.png`} alt="" onClick={handleDiamondDropDown} />
+          <img src={`${PREFIX_URL}down-arrow.png`} alt=""  />
         </div>
         {diamondDropDown && (
           <div className="mobile-diamond-drop-down-items">
