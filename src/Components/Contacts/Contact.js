@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Contact.css";
 import { PREFIX_URL, BASE_URL } from "../../contant";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const toastStyle = {
   position: "top-right",
@@ -20,35 +20,110 @@ function Contact() {
     message: "",
   });
 
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const validateForm = () => {
+    let errors = {};
+    let formIsValid = true;
+
+    // Check if name is empty
+    if (!formData.name.trim()) {
+      errors.name = "Name is required";
+      formIsValid = false;
+    }
+
+    // Check if email is empty or not valid
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+      formIsValid = false;
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        errors.email = "Invalid email address";
+        formIsValid = false;
+      }
+    }
+
+    // Check if phoneNumber is empty or not valid
+    if (!formData.phoneNumber.trim()) {
+      errors.phoneNumber = 'Phone number is required';
+      formIsValid = false;
+    } else {
+      // Check if phoneNumber contains only numbers
+      const phoneNumberRegex = /^\d+$/;
+      if (!phoneNumberRegex.test(formData.phoneNumber)) {
+        errors.phoneNumber = 'Phone number should contain only numbers';
+        formIsValid = false;
+      }
+    }
+
+    // Check if message is empty
+    if (!formData.message.trim()) {
+      errors.message = "Message is required";
+      formIsValid = false;
+    }
+
+    // Update state with errors
+    setFormErrors(errors);
+
+    return formIsValid;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(BASE_URL + "create-contact-details", {
-        clientName: formData.name,
-        clientEmail: formData.email,
-        clientPhoneNumber: formData.phoneNumber,
-        clientMessage: formData.message,
-      });
-      console.log(response.data);
+
+    // Validate the form
+    const formIsValid = validateForm();
+
+    // If form is not valid, don't submit
+    if (!formIsValid) {
+      toast.error("You Need to fill all the form details correctly.");
       setFormData({
         name: "",
         email: "",
         phoneNumber: "",
         message: "",
       });
+      return;
+    }
+
+    try {
+      // Your axios post request here
+      const response = await axios.post(BASE_URL + "create-contact-details", {
+        clientName: formData.name,
+        clientEmail: formData.email,
+        clientPhoneNumber: formData.phoneNumber,
+        clientMessage: formData.message,
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phoneNumber: "",
+        message: "",
+      });
+
       toast.success("Thanks for your response", toastStyle);
     } catch (error) {
-      console.error("Error submitting form:", error);
+      toast.error("Error submitting form:", error);
     }
   };
+
   const encodedMessage = encodeURIComponent(
-    "Hi, I'm messaging you by seeing your portfolio"
+    "Hi, I'm messaging you by seeing your Jewellery Website"
   );
-  // const whatsappMessage = `https://wa.me/+918309035246?text=${encodedMessage}`;
   const whatsappMessage = `https://wa.me/+919848424401?text=${encodedMessage}`;
 
   return (
@@ -62,7 +137,11 @@ function Contact() {
           <img src={`${PREFIX_URL}phone-call-logo.png`} alt="googleMap" />
           <span>Phone Call</span>
         </a>
-        <a className="logo-items" href={`mailto:karishmamohammed43@gmail.com`} target="_blank">
+        <a
+          className="logo-items"
+          href={`mailto:karishmamohammed43@gmail.com`}
+          target="_blank"
+        >
           <img src={`${PREFIX_URL}jewellery-email-logo.png`} alt="Gamil" />
           <span>Gmail</span>
         </a>
@@ -70,7 +149,11 @@ function Contact() {
           <img src={`${PREFIX_URL}whatsapp-logo.png`} alt="googleMap" />
           <span>WhatsApp</span>
         </a>
-        <a className="logo-items" href="https://g.co/kgs/ifKyNGU" target="_blank">
+        <a
+          className="logo-items"
+          href="https://g.co/kgs/ifKyNGU"
+          target="_blank"
+        >
           <img src={`${PREFIX_URL}google-map-location.png`} alt="googleMap" />
           <span>Google Map</span>
         </a>
